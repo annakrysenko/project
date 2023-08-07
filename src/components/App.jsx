@@ -1,16 +1,22 @@
+import { useEffect, useState } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
+import Layout from './Layout/Layout';
+
+
 export const App = () => {
+  const [firstRenderEnded, setFirstRenderEnded] = useState(false);
+  useEffect(() => {
+    setFirstRenderEnded(true);
+  }, []);
+
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
+    firstRenderEnded && (
+        <Routes>
+          <Route path="/" element={<Layout />}/>
+          <Route path="*" element={<Navigate to="/"/>} />
+        </Routes>
+    )
+    )
 };
