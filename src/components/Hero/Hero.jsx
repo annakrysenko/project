@@ -3,7 +3,7 @@ import { Background } from './Hero.styled'
 
 const Hero = () => {
   return (
-    <Background>Hero</Background>
+    <Background>Heroooo</Background>
   )
 }
 
